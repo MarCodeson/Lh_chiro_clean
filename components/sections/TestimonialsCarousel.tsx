@@ -92,7 +92,7 @@ export function TestimonialsCarousel() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : -8 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: 'easeOut' }}
-              className="text-base font-semibold text-neutral-600"
+              className="text-lg font-semibold text-neutral-600"
             >
               {slides[index].author}
             </motion.p>

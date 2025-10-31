@@ -7,9 +7,9 @@ import { Footer } from '@/components/layout/Footer'
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'Dr Les Hall | Chiropractor & Stress Management, Aberdeen',
+  title: 'Dr Les Hall | Chiropractor & Applied Kinesiologist | Barbados & United Kingdom',
   description:
-    'Dr. Les Hall, the longest-serving chiropractor in Aberdeen. 27 years of experience in chiropractic care and stress management.',
+    'Dr Les Hall BSc (Hons), MSc, DC — Human and Equine Chiropractor with 27 years experience in structural, metabolic and emotional health. Barbados and UK Registered.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

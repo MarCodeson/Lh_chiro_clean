@@ -18,10 +18,10 @@ export function AboutTeaser() {
         >
           <h2 className="text-2xl font-semibold">Professional summary</h2>
           <p className="mt-3 text-neutral-700">
-            Dr Les Hall BSc (Hons), MSc, DC is a human and equine chiropractor, Applied Kinesiologist and Neuro Emotional Technique practitioner. He has led LH Chiropractic for more than 27 years, making him the longest-serving chiropractor in Aberdeen.
+            For over 27 years, Dr Les Hall has provided holistic, conservative healthcare covering the triad of health — Structural, Metabolic and Emotional — whilst encouraging active patient involvement for optimal health and wellbeing.
           </p>
           <p className="mt-3 text-neutral-700">
-            His portfolio spans complex spinal presentations, multidisciplinary sports medicine and corporate wellbeing. Stress management is delivered as a complementary strand—integrating breathwork, movement sequencing and mindset tools shared regularly across clinic channels.
+            Based in the UK and Barbados, he continues to work with patients of all ages seeking pain resolution, improved mobility and overall wellbeing.
           </p>
           <ul className="mt-4 space-y-2 text-sm text-neutral-700">
             <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>GCC Registered No. 00616 · Barbados Registration Board approved.</span></li>

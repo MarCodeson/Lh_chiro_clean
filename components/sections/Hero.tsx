@@ -28,14 +28,14 @@ export function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-6"
         >
-          <h1 className="text-3xl font-semibold md:text-5xl">Dr Les Hall | Chiropractor &amp; Stress Management, Aberdeen</h1>
+          <h1 className="text-3xl font-semibold md:text-5xl">Dr Les Hall | Human &amp; Equine Chiropractor</h1>
+          <p className="text-neutral-700">Applied Kinesiologist | Neuro Emotional Technique Practitioner</p>
+          <p className="text-neutral-700">27+ years experience | Chiropractic for all ages</p>
+          <p className="text-neutral-700">Barbados &amp; UK Registered</p>
           <p className="text-neutral-700">
-            Longest-serving chiropractor in Aberdeen with 27+ years in practice, trusted across Orkney and Barbados. 90% of new
-            patients arrive by personal recommendation.
-          </p>
-          <p className="text-neutral-700">
-            Clinical focus on human and equine chiropractic, with a complementary stress management and wellbeing programme for
-            individuals and teams.
+            The practitioner maintains human and equine chiropractic clinics in Aberdeen and Barbados, combining applied
+            kinesiology, neuro emotional technique and stress management to support pain relief, sports injuries and long-term
+            wellbeing for families, athletes and horses as an equine chiropractor across both regions.
           </p>
           <motion.a
             href="#contact"
@@ -45,7 +45,7 @@ export function Hero() {
             variants={buttonVariants}
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.15 }}
           >
-            Contact Dr Hall
+            Learn More
           </motion.a>
           <p className="text-sm text-neutral-600">
             Human &amp; Equine Chiropractic · Applied Kinesiology · Neuro Emotional Technique (NET) · Stress Management &amp; Wellbeing

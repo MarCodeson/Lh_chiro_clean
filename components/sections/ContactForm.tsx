@@ -1,6 +1,5 @@
 'use client'
 import { motion, useReducedMotion } from 'framer-motion'
-import { useEffect, useMemo, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { site } from '@/content/site.config'
 import { Section } from '@/components/ui/Section'
@@ -35,41 +34,9 @@ const ICONS: Record<string, ReactNode> = {
 }
 
 export function ContactForm() {
-  const params = useMemo(() => new URLSearchParams(typeof window !== 'undefined' ? window.location.search : ''), [])
-  const initialLoc = (params.get('location') || 'aberdeen') as 'aberdeen' | 'orkney' | 'barbados'
-  const [status, setStatus] = useState<'idle'|'sending'|'sent'|'error'>('idle')
-  const formRef = useRef<HTMLFormElement>(null)
   const shouldReduceMotion = useReducedMotion()
-
-  useEffect(() => {
-    // Support hash-based deep link like #contact?location=orkney
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash
-      const q = hash.split('?')[1]
-      if (q) {
-        const qp = new URLSearchParams(q)
-        const loc = qp.get('location') as string | null
-        if (loc) {
-          const select = formRef.current?.querySelector('select[name="location"]') as HTMLSelectElement | null
-          if (select) select.value = loc
-        }
-      }
-    }
-  }, [])
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus('sending')
-    const fd = new FormData(e.currentTarget)
-    try {
-      const res = await fetch('/api/contact', { method: 'POST', body: fd })
-      if (!res.ok) throw new Error('Failed')
-      setStatus('sent')
-      e.currentTarget.reset()
-    } catch {
-      setStatus('error')
-    }
-  }
+  const phoneUKTel = site.contacts.phoneUK.replace(/[^+\d]/g, '')
+  const phoneBBTel = site.contacts.phoneBB.replace(/[^+\d]/g, '')
 
   return (
     <Section id="contact">
@@ -80,78 +47,85 @@ export function ContactForm() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <h2 className="text-2xl font-semibold">Enquiries &amp; contact</h2>
+        <h2 className="text-2xl font-semibold">Connect with Dr Hall</h2>
         <p className="mt-1 text-neutral-700">
-          Share a brief overview of your requirements and preferred clinic. Dr Hall or a member of the team will respond to
-          arrange the next steps.
+          Connect with the practitioner to discuss human or equine chiropractic care, applied kinesiology collaborations and stress management clinics across Kirkwall, Aberdeen and Barbados.
         </p>
       </motion.div>
-      <motion.form
-        ref={formRef}
-        onSubmit={onSubmit}
-        className="card mx-auto max-w-2xl space-y-4 p-6"
+      <motion.div
+        className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-[1.1fr_1fr]"
         initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className="grid gap-4 md:grid-cols-2">
+        <article className="card h-full space-y-5 p-6 text-left">
+          <h3 className="text-lg font-semibold text-neutral-900">Direct contact</h3>
+          <p className="text-sm text-neutral-700">
+            Use the details below to reach the clinics directly for human or equine chiropractic guidance.
+          </p>
+          <ul className="space-y-3 text-sm text-neutral-800">
+            <li>
+              Email –{' '}
+              <a className="text-accent hover:underline" href={`mailto:${site.contacts.email}`}>
+                {site.contacts.email}
+              </a>
+            </li>
+            <li>
+              WhatsApp / Call or Message –{' '}
+              <a className="text-accent hover:underline" href={whatsappHref} target="_blank" rel="noreferrer">
+                {site.contacts.phoneUK}
+              </a>{' '}
+              /{' '}
+              <a className="hover:underline" href={`tel:${phoneBBTel}`}>
+                {site.contacts.phoneBB}
+              </a>
+            </li>
+            <li>
+              UK clinic line –{' '}
+              <a className="hover:underline" href={`tel:${phoneUKTel}`}>
+                {site.contacts.phoneUK}
+              </a>
+            </li>
+            <li>
+              Barbados clinic line –{' '}
+              <a className="hover:underline" href={`tel:${phoneBBTel}`}>
+                {site.contacts.phoneBB}
+              </a>
+            </li>
+          </ul>
           <div>
-            <label htmlFor="name">Name</label>
-            <input id="name" name="name" type="text" required placeholder="Your name" />
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">Clinics</h4>
+            <ul className="mt-2 space-y-2 text-sm text-neutral-700">
+              {site.locations.map((location) => {
+                const locationLine = `${location.label} – ${location.address}`
+                return <li key={location.key}>{locationLine}</li>
+              })}
+            </ul>
           </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com" />
-          </div>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div>
-            <label htmlFor="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" required placeholder="+44 …" />
-          </div>
-          <div>
-            <label htmlFor="location">Location</label>
-            <select id="location" name="location" defaultValue={initialLoc}>
-              {site.locations.map(l => <option key={l.key} value={l.key}>{l.label}</option>)}
-            </select>
-          </div>
-        </div>
-        <div>
-          <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" rows={4} placeholder="Outline focus areas, background and availability (optional)" />
-        </div>
-        <div className="flex items-center gap-2">
-          <input id="gdpr" name="gdpr" type="checkbox" required className="h-4 w-4" />
-          <label htmlFor="gdpr" className="text-sm">I agree to be contacted about my enquiry.</label>
-        </div>
-        <button className="btn btn-primary" disabled={status==='sending'}>
-          {status==='sending' ? 'Sending…' : status==='sent' ? 'Sent' : 'Send enquiry'}
-        </button>
-        {status==='error' && <p className="small text-red-600">Something went wrong. Please try again later.</p>}
-      </motion.form>
-      <div className="mt-6 space-y-3 text-center text-sm text-neutral-700">
-        <p>UK {site.contacts.phoneUK} · BB {site.contacts.phoneBB} · {site.contacts.email}</p>
-        <p>
-          <a href={whatsappHref} className="text-accent hover:underline" target="_blank" rel="noreferrer">
-            WhatsApp direct message
-          </a>
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          {site.socials.map((social) => (
-            <a
-              key={social.key}
-              href={social.href}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 text-sm text-neutral-700 transition hover:border-accent hover:text-neutral-900"
-            >
-              <span className="text-accent">{ICONS[social.icon] ?? null}</span>
-              <span>{social.label}</span>
-            </a>
-          ))}
-        </div>
-      </div>
+        </article>
+        <article className="card h-full space-y-5 p-6 text-left">
+          <h3 className="text-lg font-semibold text-neutral-900">Social clinics &amp; updates</h3>
+          <p className="text-sm text-neutral-700">
+            Follow clinic insights covering applied kinesiology, neuro emotional technique and stress management themes.
+          </p>
+          <ul className="space-y-2 text-sm text-neutral-800">
+            {site.socials.map((social) => (
+              <li key={social.key}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 transition hover:border-accent hover:text-neutral-900"
+                >
+                  <span className="text-accent">{ICONS[social.icon] ?? null}</span>
+                  <span>{social.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </motion.div>
     </Section>
   )
 }
