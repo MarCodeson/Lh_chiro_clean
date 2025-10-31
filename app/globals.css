@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #C9A646; /* temp gold from logo */
+}
+
+html { scroll-behavior: smooth; }
+
+body { @apply bg-white text-neutral-900 antialiased; }
+
+.container { @apply mx-auto max-w-5xl px-4; }
+
+.btn { @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition; }
+.btn-primary { @apply bg-accent text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(201,166,70,0.3)]; }
+.btn-ghost { @apply text-neutral-700 hover:text-neutral-900; }
+
+.card { @apply rounded-2xl border border-neutral-200 bg-white shadow-soft; }
+
+input, textarea, select { @apply w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm placeholder:text-neutral-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-[rgba(201,166,70,0.2)]; }
+label { @apply text-sm font-medium text-neutral-700; }
+.small { @apply text-xs text-neutral-500; }
+
+/* Carousel reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-animate { animation: none !important; transition: none !important; }
+}
+

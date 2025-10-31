@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420" role="img" aria-labelledby="title">
+  <title id="title">Stylised Barbados map placeholder</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFEFF" />
+      <stop offset="100%" stop-color="#CFFAFE" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)" rx="24" />
+  <path d="M120 100l200 20 80 120-60 120-180 20-80-120z" fill="#0EA5E9" opacity="0.35" />
+  <path d="M340 120l160 60 40 120-80 80-160-40-20-120z" fill="#0284C7" opacity="0.25" />
+  <circle cx="400" cy="200" r="18" fill="#C9A646" />
+  <text x="400" y="204" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', Arial" font-weight="600" font-size="18" fill="#0F172A">
+    BB
+  </text>
+</svg>

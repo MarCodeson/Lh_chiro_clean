@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="title">
+  <title id="title">Patient testimonial portrait three</title>
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BFDBFE" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="640" rx="48" fill="url(#grad3)" />
+  <g transform="translate(160 140)">
+    <circle cx="160" cy="140" r="96" fill="rgba(255,255,255,0.65)" />
+    <path d="M160 280c88 0 160 40 160 96v24H0v-24c0-56 72-96 160-96z" fill="rgba(255,255,255,0.55)" />
+  </g>
+</svg>

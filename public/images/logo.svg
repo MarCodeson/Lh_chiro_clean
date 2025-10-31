@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48" role="img" aria-labelledby="title desc">
+  <title id="title">LH Chiropractic logo</title>
+  <desc id="desc">Stylised monogram with the letters L and H set in a gold circle.</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3DFA5" />
+      <stop offset="100%" stop-color="#C9A646" />
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="32" cy="24" r="22" fill="url(#grad)" />
+    <path d="M24 15v18h6v-3h-3V15z" fill="#1F2937" />
+    <path d="M37 15v7h-5v4h5v7h3V15z" fill="#1F2937" />
+    <text x="64" y="30" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="18" fill="#1F2937" letter-spacing="0.04em">
+      LH CHIROPRACTIC
+    </text>
+  </g>
+</svg>

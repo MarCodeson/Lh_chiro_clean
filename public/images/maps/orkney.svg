@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420" role="img" aria-labelledby="title">
+  <title id="title">Stylised Orkney map placeholder</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EEF2FF" />
+      <stop offset="100%" stop-color="#E0E7FF" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)" rx="24" />
+  <path d="M80 160l160-80 80 40-40 140-120 60-100-60z" fill="#6366F1" opacity="0.35" />
+  <path d="M360 90l140 60 60 120-120 80-120-60-20-120z" fill="#4338CA" opacity="0.25" />
+  <circle cx="420" cy="190" r="18" fill="#C9A646" />
+  <text x="420" y="194" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', Arial" font-weight="600" font-size="18" fill="#111827">
+    OR
+  </text>
+</svg>
