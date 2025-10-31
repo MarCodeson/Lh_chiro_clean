@@ -16,18 +16,18 @@ export function AboutTeaser() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h2 className="text-2xl font-semibold">Meet Dr Les Hall</h2>
+          <h2 className="text-2xl font-semibold">Professional summary</h2>
           <p className="mt-3 text-neutral-700">
-            Dr Les Hall BSc (Hons), MSc, DC — Human &amp; Equine Chiropractor, Applied Kinesiologist and Neuro Emotional Technique Practitioner. AECC University College graduate. UK General Chiropractic Council Registered No. 00616. Barbados Registered.
+            Dr Les Hall BSc (Hons), MSc, DC is a human and equine chiropractor, Applied Kinesiologist and Neuro Emotional Technique practitioner. He has led LH Chiropractic for more than 27 years, making him the longest-serving chiropractor in Aberdeen.
           </p>
           <p className="mt-3 text-neutral-700">
-            For over 27 years, Dr Hall has provided holistic, conservative healthcare, covering the triad of health — structural, metabolic and emotional — while encouraging active patient involvement for optimal health and wellbeing.
+            His portfolio spans complex spinal presentations, multidisciplinary sports medicine and corporate wellbeing. Stress management is delivered as a complementary strand—integrating breathwork, movement sequencing and mindset tools shared regularly across clinic channels.
           </p>
-          <div className="mt-4">
-            <a href="#contact" className="btn btn-primary">
-              Request help
-            </a>
-          </div>
+          <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+            <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>GCC Registered No. 00616 · Barbados Registration Board approved.</span></li>
+            <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>90% of new patients attend following recommendation from existing clients or healthcare colleagues.</span></li>
+            <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>Clinical collaborator with physiotherapists, veterinary teams, occupational health providers and insurers.</span></li>
+          </ul>
           <div className="mt-6">
             <div className="aspect-video overflow-hidden rounded-xl border border-neutral-200 shadow-soft">
               <iframe
