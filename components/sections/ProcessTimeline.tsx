@@ -5,16 +5,16 @@ import { Section } from '@/components/ui/Section'
 
 const STEPS = [
   {
-    title: 'Request help',
-    description: 'Choose your location and describe your issue so we can prepare.',
+    title: 'Initial conversation',
+    description: 'Share relevant history, priorities and preferred clinic location.',
   },
   {
-    title: 'Assessment',
-    description: 'We check your joints, muscles and movement to understand the cause.',
+    title: 'Clinical assessment',
+    description: 'Structured examination covering joints, muscles, neurological and functional testing.',
   },
   {
-    title: 'Plan & follow-up',
-    description: 'We agree next steps together and share self-care guidance.',
+    title: 'Plan & collaboration',
+    description: 'Agree next steps, liaise with healthcare or coaching teams and outline home strategies.',
   },
 ] as const
 
@@ -30,7 +30,7 @@ export function ProcessTimeline() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <h2 className="text-2xl font-semibold">What to expect</h2>
+        <h2 className="text-2xl font-semibold">Working together</h2>
         <ol className="mt-6 grid gap-4 md:grid-cols-3">
           {STEPS.map((step, index) => (
             <motion.li

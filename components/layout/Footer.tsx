@@ -18,7 +18,7 @@ export function Footer() {
       <div className="container grid gap-8 py-12 md:grid-cols-3 lg:grid-cols-5">
         <div className="flex flex-col gap-3">
           <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} className="h-24 w-24" />
-          <p className="small text-neutral-600">Evidence-based chiropractic care for humans and horses across Aberdeen, Orkney and Barbados.</p>
+          <p className="small text-neutral-600">Evidence-based chiropractic and stress management for humans and horses across Aberdeen, Orkney and Barbados.</p>
         </div>
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">Contact</h3>
@@ -26,6 +26,11 @@ export function Footer() {
             <li>UK {site.contacts.phoneUK}</li>
             <li>BB {site.contacts.phoneBB}</li>
             <li>{site.contacts.email}</li>
+            <li>
+              <a href={`https://wa.me/${site.contacts.whatsapp.replace(/[^\d]/g, '')}`} target="_blank" rel="noreferrer" className="text-accent hover:underline">
+                WhatsApp
+              </a>
+            </li>
           </ul>
         </div>
         <div>
@@ -59,6 +64,22 @@ export function Footer() {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="lg:col-span-5">
+          <div className="flex flex-wrap items-center gap-3 border-t border-neutral-200 pt-6">
+            {site.socials.map((social) => (
+              <a
+                key={social.key}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 text-sm text-neutral-700 transition hover:border-accent hover:text-neutral-900"
+              >
+                <span className="text-accent">{social.icon === 'linkedin' ? 'in' : 'ig'}</span>
+                <span>{social.label}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />

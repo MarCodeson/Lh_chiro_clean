@@ -1,17 +1,21 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
+const inter = Inter({ subsets: ['latin'], display: 'swap' })
+
 export const metadata: Metadata = {
-  title: 'LH Chiropractic — Chiropractor in Aberdeen, Orkney & Barbados',
-  description: 'Evidence-based chiropractic. GCC Registered No. 00616. 27+ years. Request help and we will call to schedule.',
+  title: 'Dr Les Hall | Chiropractor & Stress Management, Aberdeen',
+  description:
+    'Dr. Les Hall, the longest-serving chiropractor in Aberdeen. 27 years of experience in chiropractic care and stress management.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Header />
         <main>{children}</main>
         <Footer />

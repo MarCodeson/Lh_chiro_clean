@@ -46,14 +46,14 @@ export function Locations() {
             </div>
             <div className="flex flex-1 flex-col gap-2 p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                Serving patients in the {loc.label} region.
+                Regional clinic base: {loc.label}
               </p>
               <h3 className="text-lg font-medium text-neutral-900">{loc.label}</h3>
               <p className="text-sm text-neutral-700">{loc.address}</p>
               <p className="small">Hours: {loc.hours}</p>
               <div className="mt-auto pt-4">
                 <a href={`#contact?location=${loc.key}`} className="btn btn-primary w-full text-sm">
-                  Enquire at {loc.label}
+                  Contact {loc.label}
                 </a>
               </div>
             </div>

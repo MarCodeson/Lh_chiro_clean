@@ -7,6 +7,7 @@ export const site = {
     email: 'drleshall@aol.com',
     phoneUK: '+44 07715 168864',
     phoneBB: '+1 (246) 254-8864',
+    whatsapp: '+44 7715 168864',
   },
   media: {
     hero: 'https://new.express.adobe.com/webpage/bqeX7Q23jt49u/resources/8fad8c4e-5f51-4ee3-8321-a3ef05b6687f?asset_id=8fad8c4e-5f51-4ee3-8321-a3ef05b6687f&size=2560',
@@ -21,7 +22,7 @@ export const site = {
       width: 72,
       height: 72,
     },
-  slides : [
+    slides: [
   {
     img: 'https://new.express.adobe.com/webpage/bqeX7Q23jt49u/resources/c5b871e6-25ea-48a8-b4a8-2ebc9112b950?asset_id=c5b871e6-25ea-48a8-b4a8-2ebc9112b950&size=1024',
     alt: 'Satisfied patient after treatment',
@@ -70,7 +71,7 @@ export const site = {
     quote: '“I’ve been coming to Les for years and always leave feeling aligned and confident.”',
     author: 'T.D., Orkney',
   },
-] 
+    ],
   },
   locations: [
     { key: 'aberdeen', label: 'Aberdeen', address: 'LH Chiropractic, 2 Oldfold Drive, Milltimber, AB13 0JZ', hours: 'Mon–Fri 9–5' },
@@ -78,15 +79,80 @@ export const site = {
     { key: 'barbados', label: 'Barbados', address: '[Address pending]', hours: '[Hours pending]' },
   ],
   services: [
-    { slug: 'back-sciatica', title: 'Back pain & sciatica', blurb: 'Reduce pain and improve mobility.', featured: true },
-    { slug: 'neck-headache', title: 'Neck & headaches', blurb: 'Conservative care for certain mechanical headaches.', featured: true },
-    { slug: 'equine', title: 'Equine chiropractic', blurb: 'Support performance and comfort.', featured: true },
-    { slug: 'human-chiro', title: 'Human chiropractic', blurb: 'Spinal and extremity care tailored to you.' },
-    { slug: 'ak', title: 'Applied Kinesiology (AK)', blurb: 'Functional testing to inform care.' },
-    { slug: 'net', title: 'Neuro Emotional Technique (NET)', blurb: 'Mind–body technique used by trained practitioners.' },
+    {
+      slug: 'clinical-assessment',
+      title: 'Clinical chiropractic assessment',
+      blurb: 'Comprehensive history, orthopaedic testing and functional movement analysis for complex presentations.',
+      featured: true,
+    },
+    {
+      slug: 'spinal-care',
+      title: 'Spinal & extremity care',
+      blurb: 'Evidence-based adjustments, mobilisation and rehabilitation plans tailored to each individual.',
+      featured: true,
+    },
+    {
+      slug: 'equine',
+      title: 'Equine chiropractic',
+      blurb: 'Performance and recovery programmes for sport horses across Scotland and Barbados.',
+      featured: true,
+    },
+    {
+      slug: 'applied-kinesiology',
+      title: 'Applied Kinesiology (AK)',
+      blurb: 'Functional neurology and muscle testing to inform clinical decision-making.',
+    },
+    {
+      slug: 'neuro-emotional-technique',
+      title: 'Neuro Emotional Technique (NET)',
+      blurb: 'Mind–body technique supporting resilience and post-injury recovery.',
+    },
+    {
+      slug: 'occupational-support',
+      title: 'Occupational health collaboration',
+      blurb: 'On-site clinics, ergonomic audits and return-to-work planning with employers and insurers.',
+    },
   ],
   badges: [
     { name: 'GCC Registered No. 00616' },
     { name: 'AECC University College Graduate' },
+  ],
+  wellbeingHighlights: [
+    'Weekly mobility reset routines to counter desk stress and digital fatigue.',
+    'Guided breathwork and grounding prompts from the #StressLessSunday updates.',
+    'Microbreak strategies that support posture, sleep hygiene and athletic recovery.',
+    'Corporate wellbeing clinics tailored around Calm Spine protocols in Aberdeen and Barbados.',
+  ],
+  socials: [
+    {
+      key: 'linkedin',
+      label: 'LinkedIn · Dr Les Hall',
+      href: 'https://www.linkedin.com/in/les-hall-13722b152?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      icon: 'linkedin',
+    },
+    {
+      key: 'facebook-aberdeen',
+      label: 'Aberdeen Clinic · Facebook',
+      href: 'https://www.facebook.com/share/1D5FmFXTJm/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'facebook-kirkwall',
+      label: 'Kirkwall Clinic · Facebook',
+      href: 'https://www.facebook.com/share/19gzficnPH/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'facebook-barbados',
+      label: 'Barbados Holetown · Facebook',
+      href: 'https://www.facebook.com/share/1G3v5cktkn/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'instagram-barbados',
+      label: 'Barbados Wellness · Instagram',
+      href: 'https://www.instagram.com/lh_chiropractor_barbados?igsh=ZjZkNHIwdDNlZzV1&utm_source=qr',
+      icon: 'instagram',
+    },
   ],
 } as const
