@@ -7,6 +7,7 @@ export const site = {
     email: 'drleshall@aol.com',
     phoneUK: '+44 07715 168864',
     phoneBB: '+1 (246) 254-8864',
+    whatsapp: '+44 7715 168864',
   },
   media: {
     hero: 'https://new.express.adobe.com/webpage/bqeX7Q23jt49u/resources/8fad8c4e-5f51-4ee3-8321-a3ef05b6687f?asset_id=8fad8c4e-5f51-4ee3-8321-a3ef05b6687f&size=2560',
@@ -21,7 +22,7 @@ export const site = {
       width: 72,
       height: 72,
     },
-  slides : [
+    slides: [
   {
     img: 'https://new.express.adobe.com/webpage/bqeX7Q23jt49u/resources/c5b871e6-25ea-48a8-b4a8-2ebc9112b950?asset_id=c5b871e6-25ea-48a8-b4a8-2ebc9112b950&size=1024',
     alt: 'Satisfied patient after treatment',
@@ -70,23 +71,94 @@ export const site = {
     quote: '“I’ve been coming to Les for years and always leave feeling aligned and confident.”',
     author: 'T.D., Orkney',
   },
-] 
+    ],
   },
   locations: [
-    { key: 'aberdeen', label: 'Aberdeen', address: 'LH Chiropractic, 2 Oldfold Drive, Milltimber, AB13 0JZ', hours: 'Mon–Fri 9–5' },
-    { key: 'orkney', label: 'Orkney', address: '[Address pending]', hours: '[Hours pending]' },
-    { key: 'barbados', label: 'Barbados', address: '[Address pending]', hours: '[Hours pending]' },
+    {
+      key: 'kirkwall',
+      label: 'Kirkwall Clinic',
+      address: 'Crowness Road, Hatston, Kirkwall, United Kingdom',
+      hours: 'By appointment',
+    },
+    {
+      key: 'aberdeen',
+      label: 'Aberdeen Clinic',
+      address: 'Oldfold Drive, Milltimber, Aberdeen, United Kingdom',
+      hours: 'By appointment',
+    },
+    {
+      key: 'barbados',
+      label: 'Barbados Clinic',
+      address: 'Poui Avenue, Holetown, Barbados',
+      hours: 'By appointment',
+    },
   ],
   services: [
-    { slug: 'back-sciatica', title: 'Back pain & sciatica', blurb: 'Reduce pain and improve mobility.', featured: true },
-    { slug: 'neck-headache', title: 'Neck & headaches', blurb: 'Conservative care for certain mechanical headaches.', featured: true },
-    { slug: 'equine', title: 'Equine chiropractic', blurb: 'Support performance and comfort.', featured: true },
-    { slug: 'human-chiro', title: 'Human chiropractic', blurb: 'Spinal and extremity care tailored to you.' },
-    { slug: 'ak', title: 'Applied Kinesiology (AK)', blurb: 'Functional testing to inform care.' },
-    { slug: 'net', title: 'Neuro Emotional Technique (NET)', blurb: 'Mind–body technique used by trained practitioners.' },
+    {
+      slug: 'chiropractic-care',
+      title: 'Chiropractic Care (Human & Equine)',
+      blurb: 'Human and equine chiropractic programmes supporting families, riders and horses across Barbados and the United Kingdom.',
+    },
+    {
+      slug: 'applied-kinesiology',
+      title: 'Applied Kinesiology (AK)',
+      blurb: 'Applied kinesiology assessments guide clinical decisions across the structural, metabolic and emotional triad of health.',
+    },
+    {
+      slug: 'neuro-emotional-technique',
+      title: 'Neuro Emotional Technique (NET)',
+      blurb: 'Neuro Emotional Technique interventions help patients address stress patterns that influence posture and pain.',
+    },
+    {
+      slug: 'wellbeing-stress-management',
+      title: 'Wellbeing & Stress Management',
+      blurb: 'Practical stress management clinics provide grounding routines, mobility resets and breathwork strategies for ongoing wellbeing.',
+    },
+    {
+      slug: 'trauma-sports-injuries',
+      title: 'Trauma and Sports Injuries',
+      blurb: 'Care plans address trauma and sports injuries for patients and athletes seeking structured recovery.',
+    },
+    {
+      slug: 'pain-resolution-rehab',
+      title: 'Pain Resolution and Injury Rehabilitation',
+      blurb: 'Rehabilitation pathways focus on pain resolution, tissue healing and measured return to daily activity.',
+    },
   ],
   badges: [
     { name: 'GCC Registered No. 00616' },
     { name: 'AECC University College Graduate' },
+  ],
+  socials: [
+    {
+      key: 'facebook-kirkwall',
+      label: 'Facebook – Kirkwall Clinic',
+      href: 'https://www.facebook.com/share/19gzficnPH/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'facebook-aberdeen',
+      label: 'Facebook – Aberdeen Clinic',
+      href: 'https://www.facebook.com/share/1D5FmFXTJm/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'facebook-barbados',
+      label: 'Facebook – Barbados Clinic',
+      href: 'https://www.facebook.com/share/1G3v5cktkn/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'instagram-barbados',
+      label: 'Instagram – Barbados',
+      href: 'https://www.instagram.com/lh_chiropractor_barbados?igsh=ZjZkNHIwdDNlZzV1&utm_source=qr',
+      icon: 'instagram',
+    },
+    {
+      key: 'linkedin-les-hall',
+      label: 'LinkedIn – Les Hall',
+      href: 'https://www.linkedin.com/in/les-hall-13722b152?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      icon: 'linkedin',
+    },
   ],
 } as const
