@@ -3,7 +3,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { site } from '@/content/site.config'
 import { Section } from '@/components/ui/Section'
-
 export function Services() {
   const shouldReduceMotion = useReducedMotion()
   const items = site.services

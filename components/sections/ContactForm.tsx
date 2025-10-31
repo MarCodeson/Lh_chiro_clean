@@ -16,6 +16,14 @@ const ICONS: Record<string, ReactNode> = {
       />
     </svg>
   ),
+  facebook: (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M13.5 9H16l.5-3h-3V4.5c0-.864.203-1.5 1.5-1.5H16V0h-2.5C10.671 0 9 1.657 9 4.5V6H6v3h3v12h4.5V9z"
+      />
+    </svg>
+  ),
   instagram: (
     <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
       <path

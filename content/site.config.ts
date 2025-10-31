@@ -118,13 +118,41 @@ export const site = {
     { name: 'AECC University College Graduate' },
   ],
   wellbeingHighlights: [
-    'Weekly “Reset Routine” mobility drills shared with desk-based teams.',
-    'Breathwork prompts and nervous-system resets drawn from clinic Instagram updates.',
-    'Workshops on microbreak strategy, athletic recovery and sleep hygiene.',
+    'Weekly mobility reset routines to counter desk stress and digital fatigue.',
+    'Guided breathwork and grounding prompts from the #StressLessSunday updates.',
+    'Microbreak strategies that support posture, sleep hygiene and athletic recovery.',
+    'Corporate wellbeing clinics tailored around Calm Spine protocols in Aberdeen and Barbados.',
   ],
   socials: [
-    { key: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/drleshall/', icon: 'linkedin' },
-    { key: 'instagram-aberdeen', label: 'Instagram · Aberdeen', href: 'https://www.instagram.com/lhchiropractic.aberdeen/', icon: 'instagram' },
-    { key: 'instagram-barbados', label: 'Instagram · Barbados', href: 'https://www.instagram.com/lhchiropractic.barbados/', icon: 'instagram' },
+    {
+      key: 'linkedin',
+      label: 'LinkedIn · Dr Les Hall',
+      href: 'https://www.linkedin.com/in/les-hall-13722b152?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      icon: 'linkedin',
+    },
+    {
+      key: 'facebook-aberdeen',
+      label: 'Aberdeen Clinic · Facebook',
+      href: 'https://www.facebook.com/share/1D5FmFXTJm/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'facebook-kirkwall',
+      label: 'Kirkwall Clinic · Facebook',
+      href: 'https://www.facebook.com/share/19gzficnPH/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'facebook-barbados',
+      label: 'Barbados Holetown · Facebook',
+      href: 'https://www.facebook.com/share/1G3v5cktkn/?mibextid=wwXIfr',
+      icon: 'facebook',
+    },
+    {
+      key: 'instagram-barbados',
+      label: 'Barbados Wellness · Instagram',
+      href: 'https://www.instagram.com/lh_chiropractor_barbados?igsh=ZjZkNHIwdDNlZzV1&utm_source=qr',
+      icon: 'instagram',
+    },
   ],
 } as const
