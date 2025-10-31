@@ -28,9 +28,14 @@ export function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-6"
         >
-          <h1 className="text-3xl font-semibold md:text-5xl">Holistic chiropractic care for body, mind &amp; movement.</h1>
+          <h1 className="text-3xl font-semibold md:text-5xl">Dr Les Hall | Human &amp; Equine Chiropractor</h1>
+          <p className="text-neutral-700">Applied Kinesiologist | Neuro Emotional Technique Practitioner</p>
+          <p className="text-neutral-700">27+ years experience | Chiropractic for all ages</p>
+          <p className="text-neutral-700">Barbados &amp; UK Registered</p>
           <p className="text-neutral-700">
-            Helping patients move freely and feel balanced across Aberdeen, Orkney and Barbados.
+            The practitioner maintains human and equine chiropractic clinics in Aberdeen and Barbados, combining applied
+            kinesiology, neuro emotional technique and stress management to support pain relief, sports injuries and long-term
+            wellbeing for families, athletes and horses as an equine chiropractor across both regions.
           </p>
           <motion.a
             href="#contact"
@@ -40,15 +45,15 @@ export function Hero() {
             variants={buttonVariants}
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.15 }}
           >
-            Request help
+            Learn More
           </motion.a>
           <p className="text-sm text-neutral-600">
-            Human &amp; Equine Chiropractic · Applied Kinesiology · Neuro Emotional Technique (NET)
+            Human &amp; Equine Chiropractic · Applied Kinesiology · Neuro Emotional Technique (NET) · Stress Management &amp; Wellbeing
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600">
             <span className="inline-flex items-center gap-2"><Dot /> GCC Registered No. 00616</span>
             <span className="inline-flex items-center gap-2"><Dot /> AECC University College Graduate</span>
-            <span className="inline-flex items-center gap-2"><Dot /> 27+ years</span>
+            <span className="inline-flex items-center gap-2"><Dot /> 27+ years in practice</span>
           </div>
         </motion.div>
         <motion.div
