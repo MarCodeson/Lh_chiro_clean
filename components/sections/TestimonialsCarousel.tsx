@@ -70,7 +70,36 @@ export function TestimonialsCarousel() {
           </AnimatePresence>
         </div>
 
-        <div className="flex items-center justify-center gap-2 pb-4 pt-3">
+        <div className="space-y-4 px-6 pb-6 pt-4 text-center">
+          <AnimatePresence initial={false} mode="wait" custom={direction}>
+            <motion.blockquote
+              key={`${index}-quote`}
+              custom={direction}
+              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : -12 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: 'easeOut' }}
+              className="text-lg font-medium text-neutral-800 md:text-xl"
+            >
+              {slides[index].quote}
+            </motion.blockquote>
+          </AnimatePresence>
+          <AnimatePresence initial={false} mode="wait" custom={direction}>
+            <motion.p
+              key={`${index}-author`}
+              custom={direction}
+              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : -8 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: 'easeOut' }}
+              className="text-base font-semibold text-neutral-600"
+            >
+              {slides[index].author}
+            </motion.p>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex items-center justify-center gap-2 pb-4">
           {slides.map((_, dotIndex) => (
             <button
               key={dotIndex}

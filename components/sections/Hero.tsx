@@ -28,9 +28,14 @@ export function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="space-y-6"
         >
-          <h1 className="text-3xl font-semibold md:text-5xl">Holistic chiropractic care for body, mind &amp; movement.</h1>
+          <h1 className="text-3xl font-semibold md:text-5xl">Dr Les Hall | Chiropractor &amp; Stress Management, Aberdeen</h1>
           <p className="text-neutral-700">
-            Helping patients move freely and feel balanced across Aberdeen, Orkney and Barbados.
+            Longest-serving chiropractor in Aberdeen with 27+ years in practice, trusted across Orkney and Barbados. 90% of new
+            patients arrive by personal recommendation.
+          </p>
+          <p className="text-neutral-700">
+            Clinical focus on human and equine chiropractic, with a complementary stress management and wellbeing programme for
+            individuals and teams.
           </p>
           <motion.a
             href="#contact"
@@ -40,15 +45,15 @@ export function Hero() {
             variants={buttonVariants}
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.15 }}
           >
-            Request help
+            Contact Dr Hall
           </motion.a>
           <p className="text-sm text-neutral-600">
-            Human &amp; Equine Chiropractic · Applied Kinesiology · Neuro Emotional Technique (NET)
+            Human &amp; Equine Chiropractic · Applied Kinesiology · Neuro Emotional Technique (NET) · Stress Management &amp; Wellbeing
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600">
             <span className="inline-flex items-center gap-2"><Dot /> GCC Registered No. 00616</span>
             <span className="inline-flex items-center gap-2"><Dot /> AECC University College Graduate</span>
-            <span className="inline-flex items-center gap-2"><Dot /> 27+ years</span>
+            <span className="inline-flex items-center gap-2"><Dot /> 27+ years in practice</span>
           </div>
         </motion.div>
         <motion.div
