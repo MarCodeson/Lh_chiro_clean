@@ -6,6 +6,7 @@ import { Section } from '@/components/ui/Section'
 export function Services() {
   const shouldReduceMotion = useReducedMotion()
   const items = site.services
+  const wellbeingHighlights = site.wellbeingHighlights
 
   // Map service index to local image path
   const localImages = [
@@ -59,6 +60,29 @@ export function Services() {
             <p className="mt-2 text-sm text-neutral-700">{s.blurb}</p>
           </motion.article>
         ))}
+        <motion.article
+          className="card flex h-full flex-col justify-between p-5"
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55, ease: 'easeOut', delay: shouldReduceMotion ? 0 : items.length * 0.08 }}
+        >
+          <div>
+            <h3 className="text-lg font-medium">Wellbeing &amp; stress management</h3>
+            <p className="mt-2 text-sm text-neutral-700">
+              Complementary programmes for organisations and individuals, reflecting insights shared regularly on the clinic
+              Instagram feed.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+              {wellbeingHighlights.map(point => (
+                <li key={point} className="flex items-start gap-2">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.article>
       </div>
     </Section>
   )
