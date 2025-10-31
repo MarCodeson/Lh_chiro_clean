@@ -94,14 +94,46 @@ export const site = {
     },
   ],
   services: [
-    { slug: 'chiropractic-care', title: 'Chiropractic Care (Human & Equine)' },
-    { slug: 'applied-kinesiology', title: 'Applied Kinesiology (AK)' },
-    { slug: 'neuro-emotional-technique', title: 'Neuro Emotional Technique (NET)' },
-    { slug: 'wellbeing-stress-management', title: 'Wellbeing & Stress Management' },
-    { slug: 'pain-resolution-rehab', title: 'Pain Resolution and Injury Rehabilitation' },
-    { slug: 'trauma-sports-injuries', title: 'Trauma and Sports Injuries' },
-    { slug: 'range-of-motion', title: 'Improved Range of Motion' },
-    { slug: 'athlete-performance', title: 'Optimal Performance for Athletes' },
+    {
+      slug: 'chiropractic-care',
+      title: 'Chiropractic Care (Human & Equine)',
+      blurb: 'Human and equine chiropractic programmes supporting families, riders and horses across Barbados and the United Kingdom.',
+    },
+    {
+      slug: 'applied-kinesiology',
+      title: 'Applied Kinesiology (AK)',
+      blurb: 'Applied kinesiology assessments guide clinical decisions across the structural, metabolic and emotional triad of health.',
+    },
+    {
+      slug: 'neuro-emotional-technique',
+      title: 'Neuro Emotional Technique (NET)',
+      blurb: 'Neuro Emotional Technique interventions help patients address stress patterns that influence posture and pain.',
+    },
+    {
+      slug: 'wellbeing-stress-management',
+      title: 'Wellbeing & Stress Management',
+      blurb: 'Practical stress management clinics provide grounding routines, mobility resets and breathwork strategies for ongoing wellbeing.',
+    },
+    {
+      slug: 'pain-resolution-rehab',
+      title: 'Pain Resolution and Injury Rehabilitation',
+      blurb: 'Rehabilitation pathways focus on pain resolution, tissue healing and measured return to daily activity.',
+    },
+    {
+      slug: 'trauma-sports-injuries',
+      title: 'Trauma and Sports Injuries',
+      blurb: 'Care plans address trauma and sports injuries for patients and athletes seeking structured recovery.',
+    },
+    {
+      slug: 'range-of-motion',
+      title: 'Improved Range of Motion',
+      blurb: 'Individual sessions maintain range of motion and support joint function for sustained mobility.',
+    },
+    {
+      slug: 'athlete-performance',
+      title: 'Optimal Performance for Athletes',
+      blurb: 'Performance care supports athletes preparing for competition with chiropractic, applied kinesiology and recovery protocols.',
+    },
   ],
   badges: [
     { name: 'GCC Registered No. 00616' },

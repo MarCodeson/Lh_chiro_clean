@@ -35,7 +35,6 @@ const ICONS: Record<string, ReactNode> = {
 
 export function ContactForm() {
   const shouldReduceMotion = useReducedMotion()
-  const phoneUKTel = site.contacts.phoneUK.replace(/[^+\d]/g, '')
   const phoneBBTel = site.contacts.phoneBB.replace(/[^+\d]/g, '')
 
   return (
@@ -48,9 +47,6 @@ export function ContactForm() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <h2 className="text-2xl font-semibold">Connect with Dr Hall</h2>
-        <p className="mt-1 text-neutral-700">
-          Connect with the practitioner to discuss human or equine chiropractic care, applied kinesiology collaborations and stress management clinics across Kirkwall, Aberdeen and Barbados.
-        </p>
       </motion.div>
       <motion.div
         className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-[1.1fr_1fr]"
@@ -61,9 +57,6 @@ export function ContactForm() {
       >
         <article className="card h-full space-y-5 p-6 text-left">
           <h3 className="text-lg font-semibold text-neutral-900">Direct contact</h3>
-          <p className="text-sm text-neutral-700">
-            Use the details below to reach the clinics directly for human or equine chiropractic guidance.
-          </p>
           <ul className="space-y-3 text-sm text-neutral-800">
             <li>
               Email –{' '}
@@ -81,18 +74,6 @@ export function ContactForm() {
                 {site.contacts.phoneBB}
               </a>
             </li>
-            <li>
-              UK clinic line –{' '}
-              <a className="hover:underline" href={`tel:${phoneUKTel}`}>
-                {site.contacts.phoneUK}
-              </a>
-            </li>
-            <li>
-              Barbados clinic line –{' '}
-              <a className="hover:underline" href={`tel:${phoneBBTel}`}>
-                {site.contacts.phoneBB}
-              </a>
-            </li>
           </ul>
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">Clinics</h4>
@@ -105,10 +86,7 @@ export function ContactForm() {
           </div>
         </article>
         <article className="card h-full space-y-5 p-6 text-left">
-          <h3 className="text-lg font-semibold text-neutral-900">Social clinics &amp; updates</h3>
-          <p className="text-sm text-neutral-700">
-            Follow clinic insights covering applied kinesiology, neuro emotional technique and stress management themes.
-          </p>
+          <h3 className="text-lg font-semibold text-neutral-900">Social links</h3>
           <ul className="space-y-2 text-sm text-neutral-800">
             {site.socials.map((social) => (
               <li key={social.key}>

@@ -21,13 +21,8 @@ export function AboutTeaser() {
             For over 27 years, Dr Les Hall has provided holistic, conservative healthcare covering the triad of health — Structural, Metabolic and Emotional — whilst encouraging active patient involvement for optimal health and wellbeing.
           </p>
           <p className="mt-3 text-neutral-700">
-            Based in the UK and Barbados, he continues to work with patients of all ages seeking pain resolution, improved mobility and overall wellbeing.
+            Based in the United Kingdom and Barbados, he continues to work with patients of all ages seeking pain resolution, improved mobility and overall wellbeing.
           </p>
-          <ul className="mt-4 space-y-2 text-sm text-neutral-700">
-            <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>GCC Registered No. 00616 · Barbados Registration Board approved.</span></li>
-            <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>90% of new patients attend following recommendation from existing clients or healthcare colleagues.</span></li>
-            <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" /><span>Clinical collaborator with physiotherapists, veterinary teams, occupational health providers and insurers.</span></li>
-          </ul>
           <div className="mt-6">
             <div className="aspect-video overflow-hidden rounded-xl border border-neutral-200 shadow-soft">
               <iframe
