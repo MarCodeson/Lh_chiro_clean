@@ -6,6 +6,7 @@ import { Section } from '@/components/ui/Section'
 export function Services() {
   const shouldReduceMotion = useReducedMotion()
   const items = site.services
+  const wellbeingHighlights = site.wellbeingHighlights
 
   return (
     <Section id="services" className="pt-20">
