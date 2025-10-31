@@ -44,7 +44,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary text-sm">Request help</a>
+          <a href="#contact" className="btn btn-primary text-sm">Learn More</a>
         </nav>
 
         {/* Phones */}
