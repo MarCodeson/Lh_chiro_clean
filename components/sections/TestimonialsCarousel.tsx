@@ -46,7 +46,7 @@ export function TestimonialsCarousel() {
 
       <div className="card overflow-hidden">
         {/* Fixed, smaller viewport. No cropping (object-contain). */}
-        <div className="relative h-64 md:h-80 lg:h-96 bg-white">
+        <div className="relative h-72 md:h-96 lg:h-[28rem] bg-white">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={index}
@@ -92,7 +92,7 @@ export function TestimonialsCarousel() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : -8 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: 'easeOut' }}
-              className="text-lg font-semibold text-neutral-600"
+              className="text-[1.1rem] font-semibold text-neutral-600 md:text-xl"
             >
               {slides[index].author}
             </motion.p>

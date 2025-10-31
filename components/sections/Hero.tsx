@@ -30,8 +30,11 @@ export function Hero() {
         >
           <h1 className="text-3xl font-semibold md:text-5xl">Dr Les Hall</h1>
           <p className="text-neutral-700">Human &amp; Equine Chiropractor</p>
+          <p className="text-neutral-700">
+            Chiropractic healthcare for all ages, provided by a chiropractor with over 27 years of experience — still happily
+            working in his chosen profession.
+          </p>
           <p className="text-neutral-700">Applied Kinesiologist | Neuro Emotional Technique Practitioner</p>
-          <p className="text-neutral-700">27 + years experience | Chiropractic for all ages</p>
           <p className="text-neutral-700">Barbados &amp; UK Registered</p>
           <motion.a
             href="#contact"
