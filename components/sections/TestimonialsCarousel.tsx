@@ -8,9 +8,18 @@ import { site } from '@/content/site.config'
 
 const slides = site.testimonials.slides
 
+function CloseIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M6 6l12 12M18 6L6 18" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 export function TestimonialsCarousel() {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState<1 | -1>(1)
+  const [isOpen, setIsOpen] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const timer = useRef<NodeJS.Timeout | null>(null)
 
@@ -28,23 +37,45 @@ export function TestimonialsCarousel() {
     }),
   }
 
+  // Auto-advance (paused while fullscreen)
   useEffect(() => {
-    if (shouldReduceMotion) return
+    if (shouldReduceMotion || isOpen) return
     timer.current = setInterval(() => {
       setDirection(1)
-      setIndex(i => (i + 1) % slides.length)
+      setIndex((i) => (i + 1) % slides.length)
     }, 5000)
-    return () => { if (timer.current) clearInterval(timer.current) }
-  }, [shouldReduceMotion])
+    return () => {
+      if (timer.current) clearInterval(timer.current)
+    }
+  }, [shouldReduceMotion, isOpen])
+
+  // Keyboard controls when fullscreen
+  useEffect(() => {
+    if (!isOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false)
+      if (e.key === 'ArrowRight') {
+        setDirection(1)
+        setIndex((i) => (i + 1) % slides.length)
+      }
+      if (e.key === 'ArrowLeft') {
+        setDirection(-1)
+        setIndex((i) => (i - 1 + slides.length) % slides.length)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isOpen])
 
   return (
     <Section id="testimonials">
       <div className="mb-6 flex items-end justify-between">
         <h2 className="text-2xl font-semibold">Testimonials</h2>
-        <p className="small">Auto-advances every 5s.</p>
+        <p className="small">Click image to view fullscreen.</p>
       </div>
 
-      <div className="relative mx-auto h-80 w-full overflow-hidden md:h-[26rem] lg:h-[30rem]">
+      {/* Bigger base carousel area */}
+      <div className="relative mx-auto h-96 w-full overflow-hidden md:h-[34rem] lg:h-[42rem]">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={index}
@@ -56,14 +87,21 @@ export function TestimonialsCarousel() {
             exit="exit"
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeInOut' }}
           >
-            <Image
-              src={slides[index].img}
-              alt={slides[index].alt}
-              fill
-              sizes="(min-width:1024px) 768px, (min-width:768px) 640px, 100vw"
-              className="object-contain"
-              priority={index === 0}
-            />
+            <button
+              type="button"
+              aria-label="Open testimonial fullscreen"
+              onClick={() => setIsOpen(true)}
+              className="absolute inset-0 cursor-zoom-in"
+            >
+              <Image
+                src={slides[index].img}
+                alt={slides[index].alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority={index === 0}
+              />
+            </button>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -85,6 +123,56 @@ export function TestimonialsCarousel() {
           />
         ))}
       </div>
+
+      {/* Fullscreen overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-[60] bg-black/80"
+            role="dialog"
+            aria-modal="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <button
+              type="button"
+              aria-label="Close fullscreen"
+              onClick={() => setIsOpen(false)}
+              className="absolute right-4 top-4 z-[70] rounded p-2 text-white/90 transition hover:text-white"
+            >
+              <CloseIcon className="h-7 w-7" />
+            </button>
+
+            {/* Click anywhere (including image) to close */}
+            <button
+              type="button"
+              aria-label="Exit fullscreen"
+              onClick={() => setIsOpen(false)}
+              className="absolute inset-0 cursor-zoom-out"
+            />
+
+            <motion.div
+              className="absolute inset-0 z-[65] p-4 md:p-8"
+              initial={{ scale: 0.96, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: 'easeOut' }}
+            >
+              <div className="relative h-full w-full">
+                <Image
+                  src={slides[index].img}
+                  alt={slides[index].alt}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   )
 }
