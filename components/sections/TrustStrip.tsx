@@ -9,7 +9,7 @@ export function TrustStrip() {
           <span className="text-accent font-bold">27+ years</span> of continuous clinical practice
         </h2>
         <p className="text-sm text-neutral-600 md:text-base">
-          Longest-serving chiropractor in Aberdeen · 90% of patients are referrals · Human and equine care across three clinics
+          Barbados &amp; UK Registered · AECC University College Graduate · 27+ years of chiropractic experience
         </p>
       </div>
     </div>

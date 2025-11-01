@@ -44,78 +44,46 @@ export function TestimonialsCarousel() {
         <p className="small">Auto-advances every 5s.</p>
       </div>
 
-      <div className="card overflow-hidden">
-        {/* Fixed, smaller viewport. No cropping (object-contain). */}
-        <div className="relative h-72 md:h-96 lg:h-[28rem] bg-white">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={index}
-              className="absolute inset-0 p-4 md:p-6"
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeInOut' }}
-            >
-              <Image
-                src={slides[index].img}
-                alt={slides[index].alt}
-                fill
-                sizes="(min-width:1024px) 768px, (min-width:768px) 640px, 100vw"
-                className="object-contain"
-                priority={index === 0}
-              />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="space-y-4 px-6 pb-6 pt-4 text-center">
-          <AnimatePresence initial={false} mode="wait" custom={direction}>
-            <motion.blockquote
-              key={`${index}-quote`}
-              custom={direction}
-              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : -12 }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: 'easeOut' }}
-              className="text-lg font-medium text-neutral-800 md:text-xl"
-            >
-              {slides[index].quote}
-            </motion.blockquote>
-          </AnimatePresence>
-          <AnimatePresence initial={false} mode="wait" custom={direction}>
-            <motion.p
-              key={`${index}-author`}
-              custom={direction}
-              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : -8 }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: 'easeOut' }}
-              className="text-[1.1rem] font-semibold text-neutral-600 md:text-xl"
-            >
-              {slides[index].author}
-            </motion.p>
-          </AnimatePresence>
-        </div>
-
-        <div className="flex items-center justify-center gap-2 pb-4">
-          {slides.map((_, dotIndex) => (
-            <button
-              key={dotIndex}
-              type="button"
-              aria-label={`Go to testimonial ${dotIndex + 1}`}
-              onClick={() => {
-                if (dotIndex === index) return
-                setDirection(dotIndex > index ? 1 : -1)
-                setIndex(dotIndex)
-              }}
-              className={`h-2.5 w-2.5 rounded-full transition ${
-                dotIndex === index ? 'bg-accent' : 'bg-neutral-300 hover:bg-neutral-400'
-              }`}
+      <div className="relative mx-auto h-80 w-full overflow-hidden md:h-[26rem] lg:h-[30rem]">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            className="absolute inset-0"
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeInOut' }}
+          >
+            <Image
+              src={slides[index].img}
+              alt={slides[index].alt}
+              fill
+              sizes="(min-width:1024px) 768px, (min-width:768px) 640px, 100vw"
+              className="object-contain"
+              priority={index === 0}
             />
-          ))}
-        </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {slides.map((_, dotIndex) => (
+          <button
+            key={dotIndex}
+            type="button"
+            aria-label={`Go to testimonial ${dotIndex + 1}`}
+            onClick={() => {
+              if (dotIndex === index) return
+              setDirection(dotIndex > index ? 1 : -1)
+              setIndex(dotIndex)
+            }}
+            className={`h-2.5 w-2.5 rounded-full transition ${
+              dotIndex === index ? 'bg-accent' : 'bg-neutral-300 hover:bg-neutral-400'
+            }`}
+          />
+        ))}
       </div>
     </Section>
   )

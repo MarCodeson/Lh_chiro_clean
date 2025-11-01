@@ -19,7 +19,7 @@ export function Hero() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative" id="profile">
       <div className="container grid items-center gap-10 py-14 md:grid-cols-2 md:py-20">
         <motion.div
           initial="hidden"
@@ -30,6 +30,10 @@ export function Hero() {
         >
           <h1 className="text-3xl font-semibold md:text-5xl">Dr Les Hall</h1>
           <p className="text-neutral-700">Human &amp; Equine Chiropractor</p>
+          <div className="space-y-2 text-neutral-700">
+            <p>Applied Kinesiologist | Neuro Emotional Technique Practitioner</p>
+            <p>Barbados &amp; UK Registered</p>
+          </div>
           <p className="text-neutral-700">
             Chiropractic healthcare for all ages, provided by a chiropractor with over 27 years of experience — still happily
             working in his chosen profession.

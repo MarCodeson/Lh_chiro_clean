@@ -78,19 +78,16 @@ export const site = {
       key: 'kirkwall',
       label: 'Kirkwall Clinic',
       address: 'Crowness Road, Hatston, Kirkwall, United Kingdom',
-      hours: 'By appointment',
     },
     {
       key: 'aberdeen',
       label: 'Aberdeen Clinic',
       address: 'Oldfold Drive, Milltimber, Aberdeen, United Kingdom',
-      hours: 'By appointment',
     },
     {
       key: 'barbados',
       label: 'Barbados Clinic',
       address: 'Poui Avenue, Holetown, Barbados',
-      hours: 'By appointment',
     },
   ],
   services: [

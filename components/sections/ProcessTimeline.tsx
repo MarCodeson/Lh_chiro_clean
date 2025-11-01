@@ -4,13 +4,14 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Section } from '@/components/ui/Section'
 
 const POINTS = [
-  'GCC Registered No. 00616',
-  'AECC University College Graduate',
-  '27 + years clinical experience providing chiropractic healthcare for all ages',
-  'Registered in both Barbados and the United Kingdom',
-  'Experienced in Applied Kinesiology (AK) and Neuro Emotional Technique (NET)',
-  'Focused on the triad of health — Structural, Metabolic and Emotional — to support long-term wellbeing',
-  'Member of professional associations (list to be confirmed)',
+  { title: 'GCC Registration', detail: 'No. 00616' },
+  { title: 'AECC University College', detail: 'Graduate' },
+  { title: '27+ Years Clinical Experience', detail: 'Chiropractic healthcare for all ages' },
+  { title: 'Dual Registration', detail: 'Barbados and United Kingdom' },
+  { title: 'Applied Kinesiology (AK)', detail: 'Experienced practitioner' },
+  { title: 'Neuro Emotional Technique (NET)', detail: 'Experienced practitioner' },
+  { title: 'Triad of Health Focus', detail: 'Structural · Metabolic · Emotional wellbeing' },
+  { title: 'Professional Associations', detail: 'Membership details to be confirmed' },
 ] as const
 
 export function ProcessTimeline() {
@@ -26,11 +27,14 @@ export function ProcessTimeline() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         <h2 className="text-2xl font-semibold">Professional Qualifications &amp; Affiliations</h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-neutral-700 md:text-base">
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
           {POINTS.map(point => (
-            <li key={point}>{point}</li>
+            <div key={point.title} className="space-y-1">
+              <p className="text-sm font-semibold uppercase tracking-wide text-neutral-600">{point.title}</p>
+              <p className="text-base text-neutral-800">{point.detail}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </motion.div>
     </Section>
   )

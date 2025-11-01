@@ -3,10 +3,11 @@ import Link from 'next/link'
 import { site } from '@/content/site.config'
 
 const QUICK_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#profile', label: 'Profile' },
+  { href: '#about', label: 'Overview' },
+  { href: '#services', label: 'Expertise' },
+  { href: '#testimonials', label: 'Feedback' },
+  { href: '#contact', label: 'Connect' },
 ] as const
 
 export function Footer() {
