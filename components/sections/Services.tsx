@@ -24,7 +24,7 @@ export function Services() {
       <div className="grid gap-4 md:grid-cols-3">
         {items.map((item, index) => {
           const fallbackImage = localImages[index % localImages.length]
-          const imageSrc = item.image ?? (item.slug === 'chiropractic-care' ? site.media.hero : fallbackImage)
+          const imageSrc = item.image ?? (fallbackImage)
           return (
             <motion.article
               key={item.slug}
