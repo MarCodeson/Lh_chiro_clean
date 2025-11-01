@@ -6,10 +6,10 @@ export function TrustStrip() {
           className="text-2xl font-semibold tracking-tight text-neutral-800 md:text-3xl"
           title="27 years of professional chiropractic care"
         >
-          <span className="text-accent font-bold">27+ years</span> of continuous clinical practice
+          <span className="text-accent font-bold">27+ years</span> Chiropractic experience
         </h2>
         <p className="text-sm text-neutral-600 md:text-base">
-          Barbados &amp; UK Registered · AECC University College Graduate · 27+ years of chiropractic experience
+          Barbados &amp; UK Registered · AECC University College Graduate · 3 Clinics 
         </p>
       </div>
     </div>

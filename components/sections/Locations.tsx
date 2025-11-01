@@ -51,10 +51,10 @@ export function Locations() {
                 <a href={`#contact?location=${loc.key}`} className="btn btn-primary w-full text-sm">
                   Connect
                 </a>
-              </div>
+              </div></div>
             </motion.article>
           )
-        })}
+        )}
       </div>
     </Section>
   )
