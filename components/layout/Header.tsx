@@ -6,11 +6,11 @@ import type { Route } from 'next'
 import { site } from '@/content/site.config'
 
 const SECTION_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#locations', label: 'Locations' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#profile', label: 'Profile' },
+  { href: '#about', label: 'Overview' },
+  { href: '#services', label: 'Expertise' },
+  { href: '#testimonials', label: 'Feedback' },
+  { href: '#contact', label: 'Connect' },
 ] as const
 
 export function Header() {
@@ -44,7 +44,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary text-sm">Request help</a>
+          <a href="#contact" className="btn btn-primary text-sm">Learn More</a>
         </nav>
 
         {/* Phones */}
