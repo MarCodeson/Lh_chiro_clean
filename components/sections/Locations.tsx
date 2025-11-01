@@ -52,9 +52,9 @@ export function Locations() {
                   Connect
                 </a>
               </div>
-            </div>
-          </motion.article>
-        ))}
+            </motion.article>
+          )
+        })}
       </div>
     </Section>
   )

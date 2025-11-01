@@ -47,6 +47,9 @@ export function Services() {
           )
         })}
       </div>
+      <p className="mt-6 text-sm text-neutral-600">
+        Improved range of motion and optimal performance are natural outcomes of this integrated approach.
+      </p>
     </Section>
   )
 }
