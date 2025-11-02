@@ -1,17 +1,37 @@
+'use client'
+
+import Image from 'next/image'
+import { Section } from '@/components/ui/Section'
+
+
 export function TrustStrip() {
   return (
-    <div className="border-y border-neutral-200 bg-neutral-50/90 py-10">
-      <div className="container space-y-2 text-center">
-        <h2
-          className="text-2xl font-semibold tracking-tight text-neutral-800 md:text-3xl"
-          title="27 years of professional chiropractic care"
-        >
-          <span className="text-accent font-bold">27+ years</span> Chiropractic experience
-        </h2>
-        <p className="text-sm text-neutral-600 md:text-base">
-          Barbados &amp; UK Registered · AECC University College Graduate · 3 Clinics 
-        </p>
+        <Section className="bg-white border-t border-neutral-200">
+      <div className="container mx-auto grid gap-8 md:grid-cols-2 items-center">
+        
+        <div>
+          <Image
+            src="/images/hero.png"
+            alt="Dr Les Hall providing chiropractic care in clinic"
+            width={600}
+            height={400}
+            className="rounded-2xl shadow-sm object-cover w-full h-auto"
+          />
+        </div>
+
+<div className="space-y-4 text-neutral-800">
+  <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
+    Professional Background
+  </h2>
+  <ul className="list-disc pl-6 space-y-1 text-sm md:text-base">
+  <li>
+    <strong>Dr Les Hall BSc (Hons), MSc, DC</strong> — Human &amp; Equine Chiropractor
+  </li>
+  <li>Applied Kinesiologist · Neuro Emotional Technique Practitioner</li>
+  <li>AECC University College Graduate · GCC Reg. No. 00616 · Barbados Registered</li>
+</ul>
+</div>
       </div>
-    </div>
+    </Section>
   )
 }

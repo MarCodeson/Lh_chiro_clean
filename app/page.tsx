@@ -1,25 +1,22 @@
 import { Hero } from '@/components/sections/Hero'
-import { TrustStrip } from '@/components/sections/TrustStrip'
+import { VideoSection } from '@/components/sections/VideoSection'
 import { Services } from '@/components/sections/Services'
-import { AboutTeaser } from '@/components/sections/AboutTeaser'
-
 import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel'
-import { QualificationsAffiliations } from '@/components/sections/ProcessTimeline'
-import { Locations } from '@/components/sections/Locations'
-import { ContactForm } from '@/components/sections/ContactForm'
+import { ContactSection } from '@/components/sections/ContactSection'
+import  {TrustStrip} from "@/components/sections/TrustStrip"
+import { ContactBar } from '@/components/sections/ContactBar'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustStrip />
+    <ContactBar/>
+       <TrustStrip/>
+      <VideoSection/>
       <Services />
-    
-      <AboutTeaser />
       <TestimonialsCarousel />
-      <QualificationsAffiliations />
-      <Locations />
-      <ContactForm />
+      <ContactSection />
+  
     </>
   )
 }
