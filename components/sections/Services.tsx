@@ -7,16 +7,21 @@ export function Services() {
         Areas of Expertise
       </h2>
 
-      <p className="max-w-2xl mx-auto text-lg leading-relaxed mb-8">
-        27+ years providing holistic, conservative care — focusing on the triad of health:
-        {' '}
-        <strong>Structural, Metabolic &amp; Emotional</strong>.
+      <p className="max-w-2xl mx-auto text-lg leading-relaxed mb-10">
+        27+ years providing holistic, conservative care.
+        <br />
+        Focused on the triad of health — <strong>Structural • Metabolic • Emotional</strong> — helping patients achieve
+        optimal performance and wellbeing.
       </p>
 
-      <p className="max-w-3xl mx-auto text-base text-gray-700">
-        Common areas include back pain, neck pain, posture, sports injuries, and neuro-emotional work for stress
-        release and mind-body balance.
-      </p>
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-base md:text-lg text-gray-800 tracking-wide">
+        <span>Pain</span>
+        <span>Resolution</span>
+        <span>Relief</span>
+        <span>Improved Range of Motion</span>
+        <span>Traumatic &amp; Sports Injuries</span>
+        <span>Optimal Performance for Athletes</span>
+      </div>
     </section>
   )
 }
