@@ -8,6 +8,7 @@ import { Section } from '@/components/ui/Section'
 const MAP_IMAGES: Record<string, string> = {
   aberdeen: '/images/maps/aberdeen.svg',
   barbados: '/images/maps/barbados.svg',
+  kirkwall: '/images/maps/orkney.svg',
 }
 
 export function Locations() {

@@ -16,12 +16,9 @@ export function AboutTeaser() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h2 className="text-2xl font-semibold">Professional summary</h2>
+          <h2 className="text-2xl font-semibold">About Dr. Les Hall</h2>
           <p className="mt-3 text-neutral-700">
-            For over 27 years, Dr Les Hall has provided holistic, conservative healthcare covering the triad of health — Structural, Metabolic and Emotional — whilst encouraging active patient involvement for optimal health and wellbeing.
-          </p>
-          <p className="mt-3 text-neutral-700">
-            Based in the United Kingdom and Barbados, he continues to work with patients of all ages seeking pain resolution, improved mobility and overall wellbeing.
+            With 27+ years’ experience in chiropractic and holistic care, Dr Les Hall supports patients across Aberdeen Clinic, Barbados Clinic, and Kirkwall Clinic. His Optimal Performance focus brings structural, metabolic, and emotional balance to every programme.
           </p>
           <div className="mt-6">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-600">Clinics</h3>

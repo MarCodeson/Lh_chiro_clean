@@ -84,6 +84,11 @@ export const site = {
       label: 'Barbados Clinic',
       address: 'Poui Avenue, Holetown, Barbados',
     },
+    {
+      key: 'kirkwall',
+      label: 'Kirkwall Clinic',
+      address: 'Crowness Road, Hatston, Kirkwall, United Kingdom',
+    },
   ],
   services: [
     {
