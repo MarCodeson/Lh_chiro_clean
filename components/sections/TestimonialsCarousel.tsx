@@ -11,7 +11,12 @@ const slides = site.testimonials.slides
 function CloseIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path d="M6 6l12 12M18 6L6 18" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M6 6l12 12M18 6L6 18"
+        className="stroke-current"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </svg>
   )
 }
@@ -20,6 +25,7 @@ export function TestimonialsCarousel() {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState<1 | -1>(1)
   const [isOpen, setIsOpen] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const timer = useRef<NodeJS.Timeout | null>(null)
 
@@ -37,9 +43,9 @@ export function TestimonialsCarousel() {
     }),
   }
 
-  // Auto-advance (paused while fullscreen)
+  // Auto-advance with hover pause
   useEffect(() => {
-    if (shouldReduceMotion || isOpen) return
+    if (shouldReduceMotion || isOpen || isPaused) return
     timer.current = setInterval(() => {
       setDirection(1)
       setIndex((i) => (i + 1) % slides.length)
@@ -47,9 +53,9 @@ export function TestimonialsCarousel() {
     return () => {
       if (timer.current) clearInterval(timer.current)
     }
-  }, [shouldReduceMotion, isOpen])
+  }, [shouldReduceMotion, isOpen, isPaused])
 
-  // Keyboard controls when fullscreen
+  // Keyboard navigation in fullscreen
   useEffect(() => {
     if (!isOpen) return
     const onKey = (e: KeyboardEvent) => {
@@ -71,11 +77,14 @@ export function TestimonialsCarousel() {
     <Section id="testimonials">
       <div className="mb-6 flex items-end justify-between">
         <h2 className="text-2xl font-semibold">Testimonials</h2>
-        <p className="small">Click image to view fullscreen.</p>
+        <p className="small">Hover to pause · Click image to view fullscreen</p>
       </div>
 
-      {/* Bigger base carousel area */}
-      <div className="relative mx-auto h-96 w-full overflow-hidden md:h-[34rem] lg:h-[42rem]">
+      <div
+        className="relative mx-auto h-80 w-full overflow-hidden md:h-[30rem] lg:h-[36rem]"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={index}
@@ -85,7 +94,10 @@ export function TestimonialsCarousel() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeInOut' }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.6,
+              ease: 'easeInOut',
+            }}
           >
             <button
               type="button"
@@ -118,7 +130,9 @@ export function TestimonialsCarousel() {
               setIndex(dotIndex)
             }}
             className={`h-2.5 w-2.5 rounded-full transition ${
-              dotIndex === index ? 'bg-accent' : 'bg-neutral-300 hover:bg-neutral-400'
+              dotIndex === index
+                ? 'bg-accent'
+                : 'bg-neutral-300 hover:bg-neutral-400'
             }`}
           />
         ))}
@@ -144,7 +158,6 @@ export function TestimonialsCarousel() {
               <CloseIcon className="h-7 w-7" />
             </button>
 
-            {/* Click anywhere (including image) to close */}
             <button
               type="button"
               aria-label="Exit fullscreen"
@@ -157,7 +170,10 @@ export function TestimonialsCarousel() {
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: 'easeOut' }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 0.25,
+                ease: 'easeOut',
+              }}
             >
               <div className="relative h-full w-full">
                 <Image
