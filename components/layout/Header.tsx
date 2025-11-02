@@ -6,19 +6,15 @@ import type { Route } from 'next'
 import { site } from '@/content/site.config'
 
 const SECTION_LINKS = [
-  { href: '#hero', label: 'Profile' },
-  { href: '#about', label: 'Overview' },
-  { href: '#services', label: 'Expertise' },
-  { href: '#video', label: 'Video' },
-  { href: '#testimonials', label: 'Feedback' },
-  { href: '#contact', label: 'Connect' },
+  { href: '#about', label: 'About' },
+  { href: '#testimonials', label: 'Testimonials' },
+  { href: '#contact', label: 'Contact' },
 ] as const
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur">
       <div className="container flex h-20 items-center justify-between gap-4">
-        {/* Home route */}
         <Link
           href={"/" as Route}
           className="flex items-center gap-3"
@@ -34,8 +30,7 @@ export function Header() {
           />
         </Link>
 
-        {/* Section anchors */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="flex items-center gap-6">
           {SECTION_LINKS.map((item) => (
             <a
               key={item.href}
@@ -45,18 +40,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary text-sm">Learn More</a>
         </nav>
-
-        {/* Phones */}
-        <div className="flex flex-col text-right text-xs leading-tight md:text-sm">
-          <a href={`tel:${site.contacts.phoneUK}`} className="hover:underline">
-            UK {site.contacts.phoneUK}
-          </a>
-          <a href={`tel:${site.contacts.phoneBB}`} className="hover:underline">
-            BB {site.contacts.phoneBB}
-          </a>
-        </div>
       </div>
     </header>
   )
