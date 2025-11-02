@@ -5,7 +5,6 @@ import { Services } from '@/components/sections/Services'
 import { VideoFeature } from '@/components/sections/VideoFeature'
 import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
-import { Locations } from '@/components/sections/Locations'
 import { ContactForm } from '@/components/sections/ContactForm'
 
 export default function HomePage() {
@@ -18,7 +17,6 @@ export default function HomePage() {
       <VideoFeature />
       <TestimonialsCarousel />
       <ProcessTimeline />
-      <Locations />
       <ContactForm />
     </>
   )

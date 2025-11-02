@@ -22,7 +22,7 @@ export function Hero() {
             working in his chosen profession.
           </p>
           <a href="#contact" className="btn btn-primary inline-flex px-8 py-4 text-base md:text-lg">
-            Learn More
+            Contact
           </a>
           <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600">
             <span className="inline-flex items-center gap-2"><Dot /> GCC Registered No. 00616</span>

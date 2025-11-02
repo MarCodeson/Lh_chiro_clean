@@ -1,89 +1,109 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+
 import { Section } from '@/components/ui/Section'
 import { site } from '@/content/site.config'
 
 const slides = site.testimonials.slides
+const TOTAL_SLIDES = slides.length
+const AUTO_ADVANCE_MS = 5000
 
 export function TestimonialsCarousel() {
   const [index, setIndex] = useState(0)
-  const [direction, setDirection] = useState<1 | -1>(1)
-  const shouldReduceMotion = useReducedMotion()
-  const timer = useRef<NodeJS.Timeout | null>(null)
-
-  const slideVariants = {
-    enter: (dir: number) => ({
-      x: shouldReduceMotion ? 0 : dir > 0 ? '100%' : '-100%',
-      opacity: shouldReduceMotion ? 1 : 0,
-      position: 'absolute' as const,
-    }),
-    center: { x: '0%', opacity: 1, position: 'absolute' as const },
-    exit: (dir: number) => ({
-      x: shouldReduceMotion ? 0 : dir > 0 ? '-100%' : '100%',
-      opacity: shouldReduceMotion ? 1 : 0,
-      position: 'absolute' as const,
-    }),
-  }
+  const [paused, setPaused] = useState(false)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    if (shouldReduceMotion) return
-    timer.current = setInterval(() => {
-      setDirection(1)
-      setIndex(i => (i + 1) % slides.length)
-    }, 5000)
-    return () => { if (timer.current) clearInterval(timer.current) }
-  }, [shouldReduceMotion])
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+      intervalRef.current = null
+    }
+
+    if (paused) {
+      return
+    }
+
+    intervalRef.current = setInterval(() => {
+      setIndex((prev) => (prev + 1) % TOTAL_SLIDES)
+    }, AUTO_ADVANCE_MS)
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+        intervalRef.current = null
+      }
+    }
+  }, [paused])
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [])
+
+  const goTo = (target: number) => {
+    setIndex((target + TOTAL_SLIDES) % TOTAL_SLIDES)
+  }
+
+  const handleMouseEnter = () => setPaused(true)
+  const handleMouseLeave = () => setPaused(false)
+
+  const currentSlide = slides[index]
 
   return (
     <Section id="testimonials">
       <div className="mb-6 flex items-end justify-between">
         <h2 className="text-2xl font-semibold">Testimonials</h2>
-        <p className="small">Auto-advances every 5s.</p>
+        <p className="text-base text-neutral-600">Auto-advance every 5 seconds. Hover to pause.</p>
       </div>
 
-      <div className="relative mx-auto h-80 w-full overflow-hidden md:h-[26rem] lg:h-[30rem]">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={index}
-            className="absolute inset-0"
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: 'easeInOut' }}
-          >
-            <Image
-              src={slides[index].img}
-              alt={slides[index].alt}
-              fill
-              sizes="(min-width:1024px) 768px, (min-width:768px) 640px, 100vw"
-              className="object-contain"
-              priority={index === 0}
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <div
+        className="mx-auto flex max-w-3xl flex-col gap-6"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <article className="rounded-2xl border border-neutral-200 bg-white p-8 text-left shadow-soft" aria-live="polite">
+          <p className="text-xl font-medium text-neutral-900 md:text-2xl">{currentSlide.quote}</p>
+          <p className="mt-4 text-base font-semibold text-neutral-900">{currentSlide.author}</p>
+          <p className="text-base text-neutral-600">{currentSlide.bio}</p>
+        </article>
 
-      <div className="mt-6 flex items-center justify-center gap-2">
-        {slides.map((_, dotIndex) => (
-          <button
-            key={dotIndex}
-            type="button"
-            aria-label={`Go to testimonial ${dotIndex + 1}`}
-            onClick={() => {
-              if (dotIndex === index) return
-              setDirection(dotIndex > index ? 1 : -1)
-              setIndex(dotIndex)
-            }}
-            className={`h-2.5 w-2.5 rounded-full transition ${
-              dotIndex === index ? 'bg-accent' : 'bg-neutral-300 hover:bg-neutral-400'
-            }`}
-          />
-        ))}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => goTo(index - 1)}
+              className="rounded-full border border-neutral-300 px-4 py-2 text-base font-semibold text-neutral-700 transition hover:border-accent hover:text-neutral-900"
+              aria-label="Show previous testimonial"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              onClick={() => goTo(index + 1)}
+              className="rounded-full border border-neutral-300 px-4 py-2 text-base font-semibold text-neutral-700 transition hover:border-accent hover:text-neutral-900"
+              aria-label="Show next testimonial"
+            >
+              Next
+            </button>
+          </div>
+          <div className="flex items-center gap-2" role="group" aria-label="Select testimonial slide">
+            {slides.map((_, dotIndex) => (
+              <button
+                key={dotIndex}
+                type="button"
+                aria-label={`Go to testimonial ${dotIndex + 1}`}
+                onClick={() => goTo(dotIndex)}
+                className={`h-3 w-3 rounded-full transition ${
+                  dotIndex === index ? 'bg-accent' : 'bg-neutral-300 hover:bg-neutral-400'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </Section>
   )

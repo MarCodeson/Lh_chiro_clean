@@ -1,8 +1,7 @@
-'use client'
-import { motion, useReducedMotion } from 'framer-motion'
 import type { ReactNode } from 'react'
-import { site } from '@/content/site.config'
+
 import { Section } from '@/components/ui/Section'
+import { site } from '@/content/site.config'
 
 const whatsappHref = `https://wa.me/${site.contacts.whatsapp.replace(/[^\d]/g, '')}`
 
@@ -34,27 +33,14 @@ const ICONS: Record<string, ReactNode> = {
 }
 
 export function ContactForm() {
-  const shouldReduceMotion = useReducedMotion()
   const phoneBBTel = site.contacts.phoneBB.replace(/[^+\d]/g, '')
 
   return (
     <Section id="contact">
-      <motion.div
-        className="mb-6 text-center"
-        initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
+      <div className="mb-6 text-center">
         <h2 className="text-2xl font-semibold">Connect with Dr Hall</h2>
-      </motion.div>
-      <motion.div
-        className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-[1.1fr_1fr]"
-        initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 28 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
+      </div>
+      <div className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-[1.1fr_1fr]">
         <article className="card h-full space-y-5 p-6 text-left">
           <h3 className="text-lg font-semibold text-neutral-900">Direct contact</h3>
           <ul className="space-y-3 text-sm text-neutral-800">
@@ -110,7 +96,7 @@ export function ContactForm() {
             ))}
           </div>
         </article>
-      </motion.div>
+      </div>
     </Section>
   )
 }
