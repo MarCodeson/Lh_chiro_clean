@@ -16,28 +16,24 @@ export function AboutTeaser() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h2 className="text-2xl font-semibold">Meet Dr Les Hall</h2>
+          <h2 className="text-2xl font-semibold">Professional summary</h2>
           <p className="mt-3 text-neutral-700">
-            Dr Les Hall BSc (Hons), MSc, DC — Human &amp; Equine Chiropractor, Applied Kinesiologist and Neuro Emotional Technique Practitioner. AECC University College graduate. UK General Chiropractic Council Registered No. 00616. Barbados Registered.
+            For over 27 years, Dr Les Hall has provided holistic, conservative healthcare covering the triad of health — Structural, Metabolic and Emotional — whilst encouraging active patient involvement for optimal health and wellbeing.
           </p>
           <p className="mt-3 text-neutral-700">
-            For over 27 years, Dr Hall has provided holistic, conservative healthcare, covering the triad of health — structural, metabolic and emotional — while encouraging active patient involvement for optimal health and wellbeing.
+            Based in the United Kingdom and Barbados, he continues to work with patients of all ages seeking pain resolution, improved mobility and overall wellbeing.
           </p>
-          <div className="mt-4">
-            <a href="#contact" className="btn btn-primary">
-              Request help
-            </a>
-          </div>
           <div className="mt-6">
-            <div className="aspect-video overflow-hidden rounded-xl border border-neutral-200 shadow-soft">
-              <iframe
-                className="h-full w-full"
-                src={`https://player.vimeo.com/video/${site.media.vimeoId}?title=0&byline=0&portrait=0`}
-                title="Practice ethos video"
-                loading="lazy"
-                allow="autoplay; fullscreen; picture-in-picture"
-              />
-            </div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-600">Clinics</h3>
+            <ul className="mt-2 space-y-2 text-sm text-neutral-700">
+              {site.locations.map((location) => (
+                <li key={location.key}>
+                  <span className="font-medium text-neutral-800">{location.label}</span>
+                  <br />
+                  <span>{location.address}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </motion.div>
         <motion.div

@@ -7,7 +7,6 @@ import { Section } from '@/components/ui/Section'
 
 const MAP_IMAGES: Record<string, string> = {
   aberdeen: '/images/maps/aberdeen.svg',
-  orkney: '/images/maps/orkney.svg',
   barbados: '/images/maps/barbados.svg',
 }
 
@@ -25,7 +24,7 @@ export function Locations() {
       >
         <h2 className="text-2xl font-semibold">Locations</h2>
       </motion.div>
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2">
         {site.locations.map((loc, index) => (
           <motion.article
             key={loc.key}
@@ -44,16 +43,12 @@ export function Locations() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-1 flex-col gap-2 p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                Serving patients in the {loc.label} region.
-              </p>
+            <div className="flex flex-1 flex-col gap-3 p-5">
               <h3 className="text-lg font-medium text-neutral-900">{loc.label}</h3>
               <p className="text-sm text-neutral-700">{loc.address}</p>
-              <p className="small">Hours: {loc.hours}</p>
               <div className="mt-auto pt-4">
                 <a href={`#contact?location=${loc.key}`} className="btn btn-primary w-full text-sm">
-                  Enquire at {loc.label}
+                  Connect
                 </a>
               </div>
             </div>

@@ -1,7 +1,8 @@
 import { Hero } from '@/components/sections/Hero'
 import { TrustStrip } from '@/components/sections/TrustStrip'
-import { Services } from '@/components/sections/Services'
 import { AboutTeaser } from '@/components/sections/AboutTeaser'
+import { Services } from '@/components/sections/Services'
+import { VideoFeature } from '@/components/sections/VideoFeature'
 import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel'
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { Locations } from '@/components/sections/Locations'
@@ -12,8 +13,9 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustStrip />
-      <Services />
       <AboutTeaser />
+      <Services />
+      <VideoFeature />
       <TestimonialsCarousel />
       <ProcessTimeline />
       <Locations />
