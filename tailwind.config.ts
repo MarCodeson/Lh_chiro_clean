@@ -11,6 +11,10 @@ export default {
       colors: {
         accent: 'var(--accent)'
       },
+      fontFamily: {
+        body: ['var(--font-body)'],
+        heading: ['var(--font-heading)'],
+      },
       maxWidth: {
         content: '110rem'
       },

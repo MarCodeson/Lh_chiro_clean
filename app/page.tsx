@@ -1,22 +1,26 @@
 import { Hero } from '@/components/sections/Hero'
-import { VideoSection } from '@/components/sections/VideoSection'
-import { Services } from '@/components/sections/Services'
+import { ContactStrip } from './(site)/components/ContactStrip'
+import { HeroImage } from './(site)/components/HeroImage'
+import { Qualifications } from './(site)/components/Qualifications'
+import { PracticeEthos } from './(site)/components/PracticeEthos'
+import { ClinicalFocus } from './(site)/components/ClinicalFocus'
+import { Gallery } from './(site)/components/Gallery'
+
+import { ContactForm } from './(site)/components/ContactForm'
 import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel'
-import { ContactSection } from '@/components/sections/ContactSection'
-import  {TrustStrip} from "@/components/sections/TrustStrip"
-import { ContactBar } from '@/components/sections/ContactBar'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-    <ContactBar/>
-       <TrustStrip/>
-      <VideoSection/>
-      <Services />
+      <ContactStrip />
+      <HeroImage />
+      <Qualifications />
+      <PracticeEthos />
+      <ClinicalFocus />
+      <Gallery />
       <TestimonialsCarousel />
-      <ContactSection />
-  
+      <ContactForm />
     </>
   )
 }

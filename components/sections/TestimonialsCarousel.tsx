@@ -77,7 +77,7 @@ export function TestimonialsCarousel() {
     <Section id="testimonials">
       <div className="mb-6 flex items-end justify-between">
         <h2 className="text-2xl font-semibold">Testimonials</h2>
-        <p className="small">Hover to pause · Click image to view fullscreen</p>
+
       </div>
 
       <div
