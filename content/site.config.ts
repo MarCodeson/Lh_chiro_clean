@@ -24,15 +24,15 @@ export const site = {
     height: 72,
   },
   imagesOnly: true,
- slides: [
-  { img: '/images/testimonials/julian.png',  alt: 'Patient testimonial — Julian' }, // 1st
-  { img: '/images/testimonials/farah.png',   alt: 'Patient testimonial — Farah' },  // 2nd (Head Lecturer)
-  { img: '/images/testimonials/colin.png',   alt: 'Patient testimonial — Colin' },  // 3rd (Cricketer)
-  { img: '/images/testimonials/alan.png',    alt: 'Patient testimonial — Alan' },
-  { img: '/images/testimonials/scott.png',   alt: 'Patient testimonial — Scott' },
-  { img: '/images/testimonials/vikki.png',   alt: 'Patient testimonial — Vikki' },
-  { img: '/images/testimonials/william.png', alt: 'Patient testimonial — William' },
-  { img: '/images/testimonials/zoe.png',     alt: 'Patient testimonial — Zoe' },
+slides: [
+  { img: '/images/testimonials/julian.png',  alt: 'Patient testimonial — Julian' },  // 1
+  { img: '/images/testimonials/zoe.png',     alt: 'Patient testimonial — Zoe' },     // 2
+  { img: '/images/testimonials/colin.png',   alt: 'Patient testimonial — Colin' },   // 3
+  { img: '/images/testimonials/alan.png',    alt: 'Patient testimonial — Alan' },    // 4
+  { img: '/images/testimonials/vikki.png',   alt: 'Patient testimonial — Vikki' },   // 5
+  { img: '/images/testimonials/scott.png',   alt: 'Patient testimonial — Scott' },   // 6
+  { img: '/images/testimonials/farah.png',   alt: 'Patient testimonial — Farah' },   // 7
+  { img: '/images/testimonials/william.png', alt: 'Patient testimonial — William' }, // 8
 ]
 },
 
