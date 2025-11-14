@@ -15,16 +15,18 @@ export function Qualifications() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 text-center text-[rgba(95,105,109,1)] pt-0">
       <div className="-mt-12 w-full space-y-6">
-        <div className="space-y-3 leading-tight">
+        <div className="space-y-5 leading-tight">
           {headingLines.map(line => (
-            <p key={line} className="font-heading text-4xl md:text-5xl leading-tight">
+            <h3 key={line} className="font-heading text-[2rem] md:text-[2.8rem] leading-tight">
               {line}
-            </p>
+            </h3>
           ))}
         </div>
-        <div className="space-y-2 text-2xl md:text-3xl leading-relaxed">
+        <div className="space-y-5 text-[1.8rem] leading-[2rem] font-semibold">
           {bodyLines.map(line => (
-            <p key={line}>{line}</p>
+            <p key={line} className="font-semibold">
+              {line}
+            </p>
           ))}
         </div>
       </div>

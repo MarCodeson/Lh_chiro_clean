@@ -4,18 +4,22 @@ import Image from 'next/image'
 
 export function Hero() {
   return (
-    <section
+    <section className='w-full overflow-hidden'>
+    <div
       id="hero"
-      className="relative w-full h-screen overflow-hidden bg-white"
+      className="relative flex items-center justify-center w-screen h-screen overflow-hidden bg-[#FAFAFA]"
     >
+
       <Image
         src="/brand/lh-logo.png"
         alt="LH Chiropractic logo"
-        fill
-        priority
-        className="object-contain object-center"
+        width={1920}
+        height={1080}
         sizes="100vw"
+        priority
+        className="w-screen h-auto object-contain"
       />
+    </div>
     </section>
   )
 }

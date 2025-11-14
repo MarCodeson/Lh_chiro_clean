@@ -12,6 +12,7 @@ import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel
 export default function HomePage() {
   return (
     <>
+   
       <Hero />
       <ContactStrip />
       <HeroImage />

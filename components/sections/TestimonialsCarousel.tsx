@@ -75,7 +75,7 @@ export function TestimonialsCarousel() {
 
   return (
     <Section id="testimonials">
-      <div className="mb-6 flex items-end justify-between">
+      <div className="mb-6 flex justify-center items-center">
         <h2 className="text-5xl ">Testimonials</h2>
 
       </div>

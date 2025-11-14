@@ -20,44 +20,51 @@ const galleryImages = [
   '/images/gallery/dogs.png',
 ]
 
-const desktopSpans = [
-  'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4',
-  'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4',
-  'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-3',
-  'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4',
+// Fixed spans for 3 + 3 + 4 + 3 layout
+const spans = [
+  'col-span-4', 'col-span-4', 'col-span-4',               // Row 1 (3)
+  'col-span-4', 'col-span-4', 'col-span-4',               // Row 2 (3)
+  'col-span-3', 'col-span-3', 'col-span-3', 'col-span-3', // Row 3 (4)
+  'col-span-4', 'col-span-4', 'col-span-4',               // Row 4 (3)
 ]
 
 export function Gallery() {
-  const spans = desktopSpans
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const closeOverlay = () => setActiveIndex(null)
 
   return (
-    <section className="min-h-screen py-16 px-4 flex flex-col justify-center">
-      <div className="mx-auto max-w-4xl">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12">
-          {galleryImages.map((src, idx) => (
-            <button
-              type="button"
-              key={src}
-              className={`overflow-hidden rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-accent ${spans[idx] ?? 'lg:col-span-4'}`}
-              onClick={() => setActiveIndex(idx)}
-            >
-              <Image
-                src={src}
-                alt=""
-                width={480}
-                height={480}
-                className="h-full w-full cursor-zoom-in object-cover transition hover:opacity-90"
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 18vw"
-                priority={idx === 0}
-                loading={idx === 0 ? 'eager' : 'lazy'}
-                quality={80}
-              />
-            </button>
-          ))}
-        </div>
+    <section className="min-h-screen py-16 flex flex-col justify-center bg-[#FAFAFA]">
+      <div
+        className="
+          w-full
+          grid grid-cols-12 gap-4
+          px-[20%]
+          xl:px-[25%]
+          2xl:px-[30%]
+          [@media(min-width:2300px)]:px-[33%]
+        "
+      >
+        {galleryImages.map((src, idx) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setActiveIndex(idx)}
+            className={`overflow-hidden rounded-lg focus:outline-none ${spans[idx]}`}
+          >
+            <Image
+              src={src}
+              alt=""
+              width={480}
+              height={480}
+              quality={85}
+              className="h-full w-full object-cover cursor-zoom-in transition-transform duration-300 hover:scale-[1.03]"
+              sizes="100vw"
+            />
+          </button>
+        ))}
       </div>
+
+      {/* Fullscreen modal */}
       <AnimatePresence>
         {activeIndex !== null && (
           <motion.div
@@ -70,17 +77,17 @@ export function Gallery() {
             <button
               type="button"
               aria-label="Close gallery"
-              className="absolute right-6 top-6 text-3xl text-white transition hover:text-neutral-200"
               onClick={closeOverlay}
+              className="absolute top-6 right-6 text-3xl text-white font-bold hover:text-neutral-300"
             >
               ×
             </button>
             <motion.div
-              className="relative w-full max-w-4xl"
+              className="relative w-full max-w-6xl"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(event) => event.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="relative aspect-[4/3] w-full">
                 <Image
