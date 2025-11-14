@@ -78,14 +78,6 @@ export function ContactForm() {
           placeholder="Email"
           className="rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-lg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
         />
-        <input
-          type="tel"
-          name="phone"
-          value={form.phone}
-          onChange={handleChange}
-          placeholder="Phone (optional)"
-          className="rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-lg focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-        />
         <textarea
           name="message"
           value={form.message}

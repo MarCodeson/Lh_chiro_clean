@@ -7,7 +7,7 @@ export function Hero() {
     <section className='w-full overflow-hidden'>
     <div
       id="hero"
-      className="relative flex items-center justify-center w-screen h-screen overflow-hidden bg-[#FAFAFA]"
+      className="relative flex items-center justify-center w-screen h-screen overflow-hidden bg-white"
     >
 
       <Image

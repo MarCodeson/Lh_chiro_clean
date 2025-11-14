@@ -13,8 +13,8 @@ export function PracticeEthos() {
           />
         </div>
       </section>
-      <section className="px-4 py-12 text-center text-[rgba(95,105,109,1)] bg-[#FAFAFA]">
-        <h3 className="mx-auto max-w-3xl font-heading text-[2.8rem] leading-relaxed">
+      <section className="px-4 py-12 text-center text-[rgba(95,105,109,1)] bg-white">
+        <h3 className="mx-auto max-w-3xl font-heading text-[1.8rem] leading-relaxed">
           For over 27 years, Dr Hall has been providing holistic, conservative healthcare, covering the triad of
           health – Structural, Metabolic & Emotional… whilst encouraging active patient involvement for optimal health
           and wellbeing.

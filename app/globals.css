@@ -48,7 +48,7 @@ body {
   font-weight: 700;
   font-size: 1.8rem;
   color: var(--text-base);
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   line-height: 1.6;
   @apply antialiased;
 }

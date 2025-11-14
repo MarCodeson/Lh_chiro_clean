@@ -12,7 +12,7 @@ export function ContactStrip() {
   ]
 
   return (
-    <section className="bg-[#FAFAFA] flex min-h-screen items-center justify-center px-4 py-16 text-center text-[rgba(95,105,109,1)]">
+    <section className="bg-white flex min-h-screen items-center justify-center px-4 py-16 text-center text-[rgba(95,105,109,1)]">
       <div className="mx-auto max-w-3xl space-y-6 text-[1.8rem] leading-[1.6] font-semibold md:space-y-6">
         {lines.map(({ label, href,clinics }) =>
           href ? (

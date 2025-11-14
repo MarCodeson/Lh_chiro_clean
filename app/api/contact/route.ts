@@ -1,12 +1,15 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
+import { Resend } from 'resend'
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required'),
   email: z.string().trim().email('Valid email required'),
   message: z.string().trim().min(1, 'Message is required'),
-  phone: z.string().trim().optional().default(''),
+
 })
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: Request) {
   try {
@@ -20,47 +23,31 @@ export async function POST(req: Request) {
       )
     }
 
-    const { name, email, message, phone } = parsed.data
+    const { name, email, message} = parsed.data
 
-    const apiKey = process.env.RESEND_API_KEY
-    const fromAddress = process.env.RESEND_FROM ?? 'LH Chiropractic <no-reply@lh-chiro.com>'
+    // email template
+    const html = `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `
 
-    if (!apiKey) {
-      console.error('Missing RESEND_API_KEY')
-      return NextResponse.json({ error: 'Email service unavailable.' }, { status: 500 })
-    }
+    const fromAddress = "Contact Form <onboarding@resend.dev>"
 
-    const payload = {
+    // send email using Resend SDK
+    const response = await resend.emails.send({
       from: fromAddress,
-      to: ['drleshall@aol.com'],
-      reply_to: email,
+      to: ['omardixon@hotmail.co.uk'],
+      replyTo: email,
       subject: `New enquiry from ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone || 'Not provided'}`,
-        '',
-        'Message:',
-        message,
-      ].join('\n'),
-    }
-
-    const resendResponse = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
+      html,
     })
 
-    if (!resendResponse.ok) {
-      const errorBody = await resendResponse.text()
-      console.error('Resend error', errorBody)
-      return NextResponse.json(
-        { error: 'Unable to send message at this time.' },
-        { status: 502 },
-      )
+    if (response.error) {
+      console.error('Resend SDK error:', response.error)
+      return NextResponse.json({ error: 'Unable to send message.' }, { status: 502 })
     }
 
     return NextResponse.json({ success: true })
