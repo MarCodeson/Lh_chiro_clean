@@ -53,13 +53,13 @@ export function ContactForm() {
   }
 
   return (
-    <section className="min-h-screen py-16 px-4 flex items-center">
+    <section className="min-h-[70vh] py-14 px-4 flex items-center">
       <form
         onSubmit={handleSubmit}
         className="mx-auto flex w-full max-w-lg flex-col space-y-5 text-center text-[rgba(95,105,109,1)]"
         noValidate
       >
-        <h2 className="text-4xl font-heading">Message Les Hall</h2>
+        <h2 className="text-4xl font-heading">Message Dr Les Hall</h2>
         <input
           type="text"
           name="name"

@@ -33,7 +33,7 @@ export function Gallery() {
   const closeOverlay = () => setActiveIndex(null)
 
   return (
-    <section className="min-h-screen py-16 flex flex-col justify-center bg-white">
+    <section className="min-h-[75vh] py-14 flex flex-col justify-center bg-white">
       <div
         className="
           w-full

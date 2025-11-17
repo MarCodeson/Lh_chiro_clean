@@ -13,16 +13,16 @@ const bodyLines = [
 
 export function Qualifications() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 text-center text-[rgba(95,105,109,1)] pt-0">
-      <div className="-mt-12 w-full space-y-6">
-        <div className="space-y-5 leading-tight">
+    <section className="min-h-[75vh] flex items-center justify-center px-4 text-center text-[rgba(95,105,109,1)] pt-0">
+      <div className="-mt-12 w-full space-y-5">
+        <div className="space-y-4 leading-tight">
           {headingLines.map(line => (
             <h3 key={line} className="font-heading text-[2rem] md:text-[2.8rem] leading-tight">
               {line}
             </h3>
           ))}
         </div>
-        <div className="space-y-5 text-[1.8rem] leading-[2rem] font-semibold">
+        <div className="space-y-4 text-[1.8rem] leading-[1.9rem] font-semibold">
           {bodyLines.map(line => (
             <p key={line} className="font-semibold">
               {line}

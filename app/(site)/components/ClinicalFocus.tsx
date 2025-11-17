@@ -7,7 +7,7 @@ const focusItems = [
 
 export function ClinicalFocus() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-16 text-center text-[rgba(95,105,109,1)]">
+    <section className="min-h-[70vh] flex items-center justify-center px-4 py-14 text-center text-[rgba(95,105,109,1)]">
       <div className="mx-auto flex max-w-3xl flex-col items-center space-y-4 text-[1.8rem]">
         {focusItems.map(item => (
           <h3 key={item} className="font-heading">

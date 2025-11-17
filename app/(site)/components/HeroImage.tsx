@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export function HeroImage() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white py-20 -mb-24">
+    <section className="min-h-[75vh] flex items-center justify-center bg-white py-16 -mb-20">
       <div className="mx-auto w-full max-w-3xl sm:max-w-4xl md:max-w-5xl px-4">
         <Image
           src="/images/about.png"
