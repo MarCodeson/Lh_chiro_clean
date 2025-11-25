@@ -9,9 +9,10 @@ const contactSchema = z.object({
 
 })
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+
 
 export async function POST(req: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   try {
     const body = await req.json()
     const parsed = contactSchema.safeParse(body)
@@ -34,12 +35,12 @@ export async function POST(req: Request) {
       <p>${message}</p>
     `
 
-    const fromAddress = "Contact Form <onboarding@resend.dev>"
+    const fromAddress = "Contact Form <mailer@postonomy.net>"
 
     // send email using Resend SDK
     const response = await resend.emails.send({
       from: fromAddress,
-      to: ['omardixon@hotmail.co.uk'],
+      to: ['drleshall@aol.com'],
       replyTo: email,
       subject: `New enquiry from ${name}`,
       html,
